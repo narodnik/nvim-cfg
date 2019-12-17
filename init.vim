@@ -114,8 +114,8 @@ vnoremap <leader>P "+P
 
 tnoremap <esc> <C-\><C-n>
 
-" needed for ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
 " live preview of substitutions
 set icm=nosplit
+
+" open files relative to current buffer
+set autochdir
