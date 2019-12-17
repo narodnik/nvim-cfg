@@ -119,3 +119,12 @@ set icm=nosplit
 
 " open files relative to current buffer
 set autochdir
+
+" show files in normal style like file browser
+let g:netrw_liststyle = 2
+" no banner for file browser!
+let g:netrw_banner = 0
+" hide dot files
+let ghregex='\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_list_hide=ghregex
+
