@@ -95,10 +95,17 @@ no - $
 
 " set my leader to backspace
 let mapleader="\<bs>"
-" set backspace, a to open lustyjuggler
-map <leader>a :LustyJuggler<cr>
-" shut up LustyExplorer!
-set hidden
+
+" fzf commands
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>h :History<CR>
+nmap <Leader>t :BTags<CR>
+nmap <Leader>T :Tags<CR>
+nmap <Leader>l :BLines<CR>
+nmap <Leader>L :Lines<CR>
+nmap <Leader>' :Marks<CR>
 
 " " Copy to clipboard
 vnoremap  <leader>y  "+y
