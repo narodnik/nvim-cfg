@@ -1,6 +1,3 @@
-[submodule "bundle/lusty"]
-	path = bundle/lusty
-	url = https://github.com/sjbach/lusty
 [submodule "bundle/targets.vim"]
 	path = bundle/targets.vim
 	url = git://github.com/wellle/targets.vim.git
