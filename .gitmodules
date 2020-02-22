@@ -10,3 +10,12 @@
 [submodule "bundle/fzf.vim"]
 	path = bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "bundle/coc.nvim"]
+	path = bundle/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "bundle/vim-highlightedyank"]
+	path = bundle/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank
+[submodule "bundle/vim-swap"]
+	path = bundle/vim-swap
+	url = https://github.com/machakann/vim-swap
