@@ -76,6 +76,7 @@ map <end> zz
 
 " 80 chars max
 set tw=80
+autocmd FileType text setlocal tw=0
 set cc=+1
 hi ColorColumn ctermbg=black
 imap <f1> <nop>
