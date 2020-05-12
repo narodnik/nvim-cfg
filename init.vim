@@ -138,4 +138,4 @@ let ghregex='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_list_hide=ghregex
 
 " reload my marks when i load a new file
-set g:mwAutoLoadMarks
+let g:mwAutoLoadMarks=1
