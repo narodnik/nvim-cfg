@@ -139,3 +139,18 @@ let g:netrw_list_hide=ghregex
 
 " reload my marks when i load a new file
 let g:mwAutoLoadMarks=1
+
+function! RustFold()
+    let line = getline(v:lnum)
+    if match(line, '^ \+\(pub \)fn') > -1
+        return ">1"
+    elseif match(line, '^impl') > -1
+        return -1
+    else
+        return "="
+    endif
+    return 1
+endfunction
+
+autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
+
