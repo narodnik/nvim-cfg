@@ -147,7 +147,7 @@ function! RustFold()
     elseif match(line, '^impl') > -1
         return 0
     elseif match(line, '^ \+\(pub \)fn') > -1
-        return 1
+        return ">1"
     else
         return "="
     endif
