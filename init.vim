@@ -142,10 +142,12 @@ let g:mwAutoLoadMarks=1
 
 function! RustFold()
     let line = getline(v:lnum)
-    if match(line, '^ \+\(pub \)fn') > -1
-        return ">1"
+    if match(line, '^\(pub \)struct') > -1
+        return 0
     elseif match(line, '^impl') > -1
-        return -1
+        return 0
+    elseif match(line, '^ \+\(pub \)fn') > -1
+        return 1
     else
         return "="
     endif
