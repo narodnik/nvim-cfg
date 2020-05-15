@@ -78,6 +78,7 @@ map <end> zz
 set tw=80
 autocmd FileType text setlocal tw=0
 autocmd FileType markdown setlocal tw=0
+autocmd FileType rst setlocal tw=0
 set cc=+1
 hi ColorColumn ctermbg=black
 imap <f1> <nop>
@@ -191,5 +192,11 @@ function! RustFold()
     endfor
 endfunction
 
+function! ReloadRustFolds()
+    unlet b:RustFuncDefs
+    normal zx
+endfunction
+
 autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
+nnoremap <leader>e :call ReloadRustFolds()<cr>
 
