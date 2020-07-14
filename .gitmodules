@@ -25,3 +25,6 @@
 [submodule "bundle/vim-ingo-library"]
 	path = bundle/vim-ingo-library
 	url = https://github.com/inkarkat/vim-ingo-library
+[submodule "bundle/highlightMarks"]
+	path = bundle/highlightMarks
+	url = https://github.com/Tumbler/highlightMarks

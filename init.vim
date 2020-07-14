@@ -200,3 +200,5 @@ endfunction
 autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
 nnoremap <leader>e :call ReloadRustFolds()<cr>
 
+let g:highlightMarks_cterm_colors = [30]
+
