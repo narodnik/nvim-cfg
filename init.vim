@@ -34,13 +34,17 @@ set splitbelow
 " persistant undo
 set undofile
 set undodir=/tmp
-set relativenumber
 set numberwidth=3
 " turn on default indent for filetype
 filetype indent on
 " enable mouse for resizing splits
 set mouse=a
 "set ttymouse=xterm2
+
+set relativenumber
+" but also show current lineno
+set number
+set number relativenumber
 
 map <C-J> <C-w>j
 map <C-K> <C-w>k
