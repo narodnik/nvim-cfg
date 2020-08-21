@@ -10,10 +10,14 @@ set et
 " treat X spaces like a tab
 set sts=4
 
+" 24 bit colors
+set tgc
+hi Pmenu guibg=#222526 guifg=white
+
 "map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 set cursorline
-hi CursorLine   cterm=NONE ctermbg=darkgrey
-hi Folded ctermbg=NONE
+hi CursorLine   cterm=NONE guibg=#222526
+hi Folded guibg=NONE
 set hlsearch
 
 "map ; :
@@ -84,7 +88,7 @@ autocmd FileType text setlocal tw=0
 autocmd FileType markdown setlocal tw=0
 autocmd FileType rst setlocal tw=0
 set cc=+1
-hi ColorColumn ctermbg=black
+hi ColorColumn guibg=black
 imap <f1> <nop>
 
 " completion to be like bash
@@ -201,8 +205,13 @@ function! ReloadRustFolds()
     normal zx
 endfunction
 
-autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
-nnoremap <leader>e :call ReloadRustFolds()<cr>
+"autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
+"nnoremap <leader>e :call ReloadRustFolds()<cr>
 
 let g:highlightMarks_cterm_colors = [30]
+
+"au BufWritePost *.rs silent! execute "!cargo fmt" | redraw! | edit
+
+" disable annoying grey column on left opened by CoC
+set signcolumn=no
 
