@@ -1,3 +1,5 @@
+let g:highlightMarks_colors = ['#791a63']
+
 execute pathogen#infect()
 syntax on
 
@@ -48,7 +50,6 @@ set mouse=a
 set relativenumber
 " but also show current lineno
 set number
-set number relativenumber
 
 map <C-J> <C-w>j
 map <C-K> <C-w>k
@@ -211,6 +212,12 @@ endfunction
 let g:highlightMarks_cterm_colors = [30]
 
 "au BufWritePost *.rs silent! execute "!cargo fmt" | redraw! | edit
+
+autocmd BufRead *.pism call SetPismOptions()
+function SetPismOptions()
+    set syntax=pism
+    source /home/narodnik/src/sapvi/scripts/pism.vim
+endfunction
 
 " disable annoying grey column on left opened by CoC
 set signcolumn=no
