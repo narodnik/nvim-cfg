@@ -1,4 +1,5 @@
-let g:highlightMarks_colors = ['#791a63']
+" bookmarks color
+let g:highlightMarks_colors = ['#422943']
 
 execute pathogen#infect()
 syntax on
@@ -209,11 +210,10 @@ endfunction
 "autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
 "nnoremap <leader>e :call ReloadRustFolds()<cr>
 
-let g:highlightMarks_cterm_colors = [30]
-
 "au BufWritePost *.rs silent! execute "!cargo fmt" | redraw! | edit
 
 autocmd BufRead *.pism call SetPismOptions()
+autocmd BufRead *.psm call SetPismOptions()
 function SetPismOptions()
     set syntax=pism
     source /home/narodnik/src/sapvi/scripts/pism.vim
@@ -221,4 +221,15 @@ endfunction
 
 " disable annoying grey column on left opened by CoC
 set signcolumn=no
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
