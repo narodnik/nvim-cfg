@@ -132,7 +132,24 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-tnoremap <esc> <C-\><C-n>
+" use escape in the terminal
+au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+au! FileType fzf tunmap <buffer> <Esc>
+" when opening new terminal, auto enter insert mode
+autocmd TermOpen * startinsert
+" when switching to terminal, automatically enter insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" map keys to switch out of terminal
+tnoremap <C-J> <C-\><C-n><C-w>j
+tnoremap <C-K> <C-\><C-n><C-w>k
+tnoremap <C-H> <C-\><C-n><C-w>h
+tnoremap <C-L> <C-\><C-n><C-w>l
+
+" jump to definitions with coc
+" see also :h coc-action-jumpDefinition
+nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>
+nmap <silent> gv :call CocAction('jumpDefinition', 'vsplit')<CR>
+nmap <silent> gt :call CocAction('jumpDefinition', 'tabe')<CR>
 
 " live preview of substitutions
 set icm=nosplit
@@ -232,4 +249,10 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" remember cursor position
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
 
