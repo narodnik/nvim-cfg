@@ -57,8 +57,6 @@ map <C-K> <C-w>k
 map <C-H> <C-w>h
 map <C-L> <C-w>l
 
-vmap > >gv
-vmap < <gv
 " quick recording type qq, then Q to do it
 nnoremap Q @q
 
