@@ -97,8 +97,8 @@ imap <f1> <nop>
 set wildmode=list:longest
 
 " use arrow keys to switch buffers
-map <right> gt
-map <left> gT
+map <right> :tabn<cr>
+map <left> :tabp<cr>
 " speed up esc
 set ttimeoutlen=50
 
@@ -147,15 +147,17 @@ tnoremap <C-L> <C-\><C-n><C-w>l
 
 " jump to definitions with coc
 " see also :h coc-action-jumpDefinition
-nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>
-nmap <silent> gv :call CocAction('jumpDefinition', 'vsplit')<CR>
-nmap <silent> gt :call CocAction('jumpDefinition', 'tabe')<CR>
+nmap <silent> gc :call CocAction('jumpDefinition')<CR>zt
+nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>zt
+nmap <silent> gv :call CocAction('jumpDefinition', 'vsplit')<CR>zt
+nmap <silent> gt :call CocAction('jumpDefinition', 'tabe')<CR>zt
+nmap go <c-o>zz
 
 " live preview of substitutions
 set icm=nosplit
 
 " open files relative to current buffer
-set autochdir
+"set autochdir
 
 " show files in normal style like file browser
 let g:netrw_liststyle = 2
