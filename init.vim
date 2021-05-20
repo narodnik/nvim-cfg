@@ -37,7 +37,6 @@ vnoremap <tab> %
 set virtualedit=all
 set ruler
 set splitright
-set splitbelow
 " persistant undo
 set undofile
 set undodir=/tmp
