@@ -1,7 +1,18 @@
+call plug#begin('~/.config/nvim/plugged')
+
+"execute pathogen#infect()
+Plug 'junegunn/vim-easy-align'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'wellle/targets.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'Tumbler/highlightMarks'
+Plug 'machakann/vim-swap'
+
+call plug#end()
+
 " bookmarks color
 let g:highlightMarks_colors = ['#422943']
 
-execute pathogen#infect()
 syntax on
 
 " size of hard tabs
