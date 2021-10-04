@@ -7,8 +7,12 @@ Plug 'wellle/targets.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Tumbler/highlightMarks'
 Plug 'machakann/vim-swap'
+Plug 'petRUShka/vim-sage'
+Plug 'jbyuki/instant.nvim'
 
 call plug#end()
+
+let g:instant_username = "narodnik"
 
 " bookmarks color
 let g:highlightMarks_colors = ['#422943']
