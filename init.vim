@@ -9,13 +9,22 @@ Plug 'Tumbler/highlightMarks'
 Plug 'machakann/vim-swap'
 Plug 'petRUShka/vim-sage'
 Plug 'jbyuki/instant.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'narodnik/NeoSolarized'
 
 call plug#end()
+
+set background=dark
+colorscheme NeoSolarized
+let g:neosolarized_termtrans = 1
 
 let g:instant_username = "narodnik"
 
 " bookmarks color
 let g:highlightMarks_colors = ['#422943']
+
+highlight IndentBlanklineChar guifg=#222222 gui=nocombine
+hi CocHintSign guifg=#383838
 
 syntax on
 
@@ -30,7 +39,6 @@ set sts=4
 
 " 24 bit colors
 set tgc
-hi Pmenu guibg=#222526 guifg=white
 
 "map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 set cursorline
