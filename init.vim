@@ -11,6 +11,7 @@ Plug 'petRUShka/vim-sage'
 Plug 'jbyuki/instant.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'narodnik/NeoSolarized'
+Plug 'kristijanhusak/orgmode.nvim'
 
 call plug#end()
 
@@ -277,4 +278,8 @@ autocmd BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
+
+" hide noisy symbols
+hi NoisySymbols guifg=#333333
+autocmd FileType rust syn match NoisySymbols '[;{}\[\]:()]'
 
