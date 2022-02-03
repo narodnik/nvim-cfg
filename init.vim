@@ -61,6 +61,7 @@ vnoremap <tab> %
 set virtualedit=all
 set ruler
 set splitright
+set splitbelow
 " persistant undo
 set undofile
 set undodir=/tmp
@@ -116,6 +117,9 @@ imap <f1> <nop>
 
 " completion to be like bash
 set wildmode=list:longest
+
+" do not continue comments when I press enter
+set formatoptions-=cro
 
 " use arrow keys to switch buffers
 map <right> :tabn<cr>
@@ -281,5 +285,5 @@ autocmd BufReadPost *
 
 " hide noisy symbols
 hi NoisySymbols guifg=#333333
-autocmd FileType rust syn match NoisySymbols '[;{}\[\]:()]'
+autocmd FileType rust syn match NoisySymbols '[;{}\[\]:(),]'
 
