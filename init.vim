@@ -254,7 +254,7 @@ endfunction
 "autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
 "nnoremap <leader>e :call ReloadRustFolds()<cr>
 
-"au BufWritePost *.rs silent! execute "!cargo fmt" | redraw! | edit
+au BufWritePost *.rs silent! execute "!cargo fmt" | redraw! | edit
 
 autocmd BufRead *.pism call SetPismOptions()
 autocmd BufRead *.psm call SetPismOptions()
