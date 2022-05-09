@@ -12,6 +12,10 @@ Plug 'jbyuki/instant.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'narodnik/NeoSolarized'
 Plug 'kristijanhusak/orgmode.nvim'
+Plug 'tomlion/vim-solidity'
+" set background=light
+" colorscheme PaperColor
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -254,8 +258,6 @@ endfunction
 "autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
 "nnoremap <leader>e :call ReloadRustFolds()<cr>
 
-au BufWritePost *.rs silent! execute "!cargo fmt" | redraw! | edit
-
 autocmd BufRead *.pism call SetPismOptions()
 autocmd BufRead *.psm call SetPismOptions()
 function SetPismOptions()
@@ -286,4 +288,6 @@ autocmd BufReadPost *
 " hide noisy symbols
 hi NoisySymbols guifg=#333333
 autocmd FileType rust syn match NoisySymbols '[;{}\[\]:(),]'
+
+au BufNewFile,BufRead,BufReadPost *.zk set syntax=zk
 
