@@ -184,6 +184,8 @@ nmap go <c-o>zz
 
 " live preview of substitutions
 set icm=nosplit
+" no need to specify /g for every regex substitution
+set gdefault
 
 " open files relative to current buffer
 "set autochdir
