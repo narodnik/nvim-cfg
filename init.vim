@@ -16,7 +16,8 @@ Plug 'tomlion/vim-solidity'
 " set background=light
 " colorscheme PaperColor
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'joom/latex-unicoder.vim'
+" bad plugin hijacks my keys
+"Plug 'joom/latex-unicoder.vim'
 
 call plug#end()
 
