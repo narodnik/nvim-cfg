@@ -16,6 +16,7 @@ Plug 'tomlion/vim-solidity'
 " set background=light
 " colorscheme PaperColor
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'joom/latex-unicoder.vim'
 
 call plug#end()
 
@@ -93,6 +94,7 @@ map <f1> <nop>
 
 " make highlighted searches disappear
 nmap <C-N> :noh <CR>
+imap <f1> <nop>
 
 " disable bad habit
 inoremap <DOWN> <nop>
@@ -117,7 +119,6 @@ autocmd FileType markdown setlocal tw=0
 autocmd FileType rst setlocal tw=0
 set cc=+1
 hi ColorColumn guibg=black
-imap <f1> <nop>
 
 " completion to be like bash
 set wildmode=list:longest
@@ -138,17 +139,6 @@ no - $
 " set my leader to backspace
 let mapleader="\<bs>"
 
-" fzf commands
-nmap <Leader>f :GFiles<CR>
-nmap <Leader>F :Files<CR>
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>h :History<CR>
-nmap <Leader>t :BTags<CR>
-nmap <Leader>T :Tags<CR>
-nmap <Leader>l :BLines<CR>
-nmap <Leader>L :Lines<CR>
-nmap <Leader>' :Marks<CR>
-
 " " Copy to clipboard
 vnoremap  <leader>y  "+y
 nnoremap  <leader>Y  "+yg_
@@ -163,7 +153,6 @@ vnoremap <leader>P "+P
 
 " use escape in the terminal
 au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-au! FileType fzf tunmap <buffer> <Esc>
 " when opening new terminal, auto enter insert mode
 autocmd TermOpen * startinsert
 " when switching to terminal, automatically enter insert mode
@@ -200,72 +189,6 @@ let g:netrw_list_hide=ghregex
 
 " reload my marks when i load a new file
 let g:mwAutoLoadMarks=1
-
-function! MakeRustFuncDefs()
-    let b:RustFuncDefs = []
-
-    let lnum = 1
-    while lnum <= line('$')
-        let current_line = getline(lnum)
-        if match(current_line, '^ *\(pub \)\?fn') > -1
-            call AddRustFunc(lnum)
-        endif
-
-        let lnum += 1
-    endwhile
-endfunction
-
-function! AddRustFunc(lnum)
-    let save_pos = getpos('.')
-    call setpos('.', [0, a:lnum, 1, 0])
-
-    call search('{')
-    let start_lnum = line('.')
-
-    let end_lnum = searchpair('{', '', '}', 'n')
-    if end_lnum < 1
-        call setpos('.', save_pos)
-        return
-    endif
-
-    call add(b:RustFuncDefs, [start_lnum, end_lnum]);
-    call setpos('.', save_pos)
-endfunction
-
-function! RustFold()
-    if !exists("b:RustFuncDefs")
-        call MakeRustFuncDefs()
-    endif
-
-    for [start_lnum, end_lnum] in b:RustFuncDefs
-        if start_lnum > v:lnum
-            return 0
-        endif
-
-        if v:lnum == start_lnum + 1
-            return ">1"
-        elseif v:lnum == end_lnum
-            return "<1"
-        elseif v:lnum > start_lnum && v:lnum < end_lnum
-            return "="
-        endif
-    endfor
-endfunction
-
-function! ReloadRustFolds()
-    unlet b:RustFuncDefs
-    normal zx
-endfunction
-
-"autocmd FileType rust setlocal foldmethod=expr foldexpr=RustFold()
-"nnoremap <leader>e :call ReloadRustFolds()<cr>
-
-autocmd BufRead *.pism call SetPismOptions()
-autocmd BufRead *.psm call SetPismOptions()
-function SetPismOptions()
-    set syntax=pism
-    source /home/narodnik/src/sapvi/scripts/pism.vim
-endfunction
 
 " disable annoying grey column on left opened by CoC
 set signcolumn=no
