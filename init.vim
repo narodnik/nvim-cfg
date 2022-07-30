@@ -10,20 +10,24 @@ Plug 'machakann/vim-swap'
 Plug 'petRUShka/vim-sage'
 Plug 'jbyuki/instant.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'narodnik/NeoSolarized'
+"Plug 'narodnik/NeoSolarized'
 Plug 'kristijanhusak/orgmode.nvim'
 Plug 'tomlion/vim-solidity'
-" set background=light
-" colorscheme PaperColor
-Plug 'NLKNguyen/papercolor-theme'
+" For sunlight conditions
+"Plug 'NLKNguyen/papercolor-theme'
 " bad plugin hijacks my keys
 "Plug 'joom/latex-unicoder.vim'
+Plug 'nanotee/zoxide.vim'
 
 call plug#end()
 
-set background=dark
-colorscheme NeoSolarized
-let g:neosolarized_termtrans = 1
+" put this for sunlight conditions
+" set background=light
+" colorscheme PaperColor
+
+"set background=dark
+"colorscheme NeoSolarized
+"let g:neosolarized_termtrans = 1
 
 let g:instant_username = "narodnik"
 
