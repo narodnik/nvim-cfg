@@ -22,12 +22,14 @@ Plug 'nanotee/zoxide.vim'
 call plug#end()
 
 " put this for sunlight conditions
-" set background=light
-" colorscheme PaperColor
+"set background=light
+"colorscheme PaperColor
 
 "set background=dark
 "colorscheme NeoSolarized
 "let g:neosolarized_termtrans = 1
+
+highlight Pmenu guibg=gray guifg=black
 
 let g:instant_username = "narodnik"
 
@@ -36,6 +38,8 @@ let g:highlightMarks_colors = ['#422943']
 
 highlight IndentBlanklineChar guifg=#222222 gui=nocombine
 hi CocHintSign guifg=#383838
+hi! CocUnusedHighlight guibg=NONE guifg=#bbbbbb
+hi FgCocErrorFloatBgCocFloating guifg=White guibg=Black
 
 syntax on
 
@@ -216,7 +220,7 @@ autocmd BufReadPost *
   \ endif
 
 " hide noisy symbols
-hi NoisySymbols guifg=#333333
+hi NoisySymbols guifg=#aaaaaa
 autocmd FileType rust syn match NoisySymbols '[;{}\[\]:(),]'
 
 au BufNewFile,BufRead,BufReadPost *.zk set syntax=zk
