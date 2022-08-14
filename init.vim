@@ -225,3 +225,6 @@ autocmd FileType rust syn match NoisySymbols '[;{}\[\]:(),]'
 
 au BufNewFile,BufRead,BufReadPost *.zk set syntax=zk
 
+" Alias zoxide lcd 'Lz' to just z
+cnoreabbrev z Lz
+
