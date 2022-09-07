@@ -1,8 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
-"execute pathogen#infect()
 Plug 'junegunn/vim-easy-align'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Tumbler/highlightMarks'
@@ -10,11 +8,8 @@ Plug 'machakann/vim-swap'
 Plug 'petRUShka/vim-sage'
 Plug 'jbyuki/instant.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
-"Plug 'narodnik/NeoSolarized'
 Plug 'kristijanhusak/orgmode.nvim'
 Plug 'tomlion/vim-solidity'
-" For sunlight conditions
-"Plug 'NLKNguyen/papercolor-theme'
 " bad plugin hijacks my keys
 "Plug 'joom/latex-unicoder.vim'
 Plug 'nanotee/zoxide.vim'
@@ -37,9 +32,6 @@ let g:instant_username = "narodnik"
 let g:highlightMarks_colors = ['#422943']
 
 highlight IndentBlanklineChar guifg=#222222 gui=nocombine
-hi CocHintSign guifg=#383838
-hi! CocUnusedHighlight guibg=NONE guifg=#bbbbbb
-hi FgCocErrorFloatBgCocFloating guifg=White guibg=Black
 
 syntax on
 
@@ -172,14 +164,6 @@ tnoremap <C-K> <C-\><C-n><C-w>k
 tnoremap <C-H> <C-\><C-n><C-w>h
 tnoremap <C-L> <C-\><C-n><C-w>l
 
-" jump to definitions with coc
-" see also :h coc-action-jumpDefinition
-nmap <silent> gc :call CocAction('jumpDefinition')<CR>zt
-nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>zt
-nmap <silent> gv :call CocAction('jumpDefinition', 'vsplit')<CR>zt
-nmap <silent> gt :call CocAction('jumpDefinition', 'tabe')<CR>zt
-nmap go <c-o>zz
-
 " live preview of substitutions
 set icm=nosplit
 " no need to specify /g for every regex substitution
@@ -201,17 +185,6 @@ let g:mwAutoLoadMarks=1
 
 " disable annoying grey column on left opened by CoC
 set signcolumn=no
-
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " remember cursor position
 autocmd BufReadPost *
