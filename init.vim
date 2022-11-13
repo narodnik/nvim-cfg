@@ -126,6 +126,8 @@ set wildmode=list:longest
 
 " do not continue comments when I press enter
 set formatoptions-=cro
+" motherfucker vim plugins overwrites that
+au FileType * set fo-=c fo-=r fo-=o
 
 " use arrow keys to switch buffers
 map <right> :tabn<cr>
@@ -136,6 +138,10 @@ set ttimeoutlen=50
 " jump to end and start of lines shortcuts
 no 0 ^
 no - $
+
+" type ,X to insert single char X
+" saves an extra keystroke
+nmap , i_<Esc>r
 
 " set my leader to backspace
 let mapleader="\<bs>"
