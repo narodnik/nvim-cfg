@@ -212,4 +212,6 @@ cabbrev z Z
 
 dig a: 120198 b: 120095 c: 120096 p: 120109 ZZ 8484 in 8712 .. 8943 (< 8842
 dig ni 8713 (X 8840 ,, 8230 :. 183
+" use ⟨ instead of 〈and ⟩ instead of 〉
+dig </ 10216 /> 10217
 
