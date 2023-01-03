@@ -12,7 +12,6 @@ Plug 'kristijanhusak/orgmode.nvim'
 Plug 'tomlion/vim-solidity'
 " bad plugin hijacks my keys
 "Plug 'joom/latex-unicoder.vim'
-Plug 'nanotee/zoxide.vim'
 
 call plug#end()
 
@@ -204,6 +203,13 @@ autocmd FileType rust syn match NoisySymbols '[;{}\[\]:(),]'
 
 au BufNewFile,BufRead,BufReadPost *.zk set syntax=zk
 
-" Alias zoxide lcd 'Lz' to just z
-cnoreabbrev z Lz
+function Lz(tag)
+    let l:path = system("zorten.sh " . a:tag)
+    exe "lcd " . l:path
+endfunction
+command -nargs=1 Z :call Lz(<q-args>)
+cabbrev z Z
+
+dig a: 120198 b: 120095 c: 120096 p: 120109 ZZ 8484 in 8712 .. 8943 (< 8842
+dig ni 8713 (X 8840 ,, 8230 :. 183
 
