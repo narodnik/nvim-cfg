@@ -204,14 +204,19 @@ autocmd FileType rust syn match NoisySymbols '[;{}\[\]:(),]'
 au BufNewFile,BufRead,BufReadPost *.zk set syntax=zk
 
 function Lz(tag)
-    let l:path = system("zorten.sh " . a:tag)
-    exe "lcd " . l:path
+    if a:tag == "."
+        exe "lcd %:p:h"
+    else
+        let l:path = system("zorten.sh " . a:tag)
+        exe "lcd " . l:path
+    endif
 endfunction
 command -nargs=1 Z :call Lz(<q-args>)
 cabbrev z Z
 
-dig a: 120198 b: 120095 c: 120096 p: 120109 ZZ 8484 in 8712 (< 8842
-dig ni 8713 (! 8840 :. 183 ** 215 i8 8734 QQ 8474
+dig a: 120094 b: 120095 c: 120096 p: 120109 ZZ 8484 in 8712 (< 8842
+dig ni 8713 (! 8840 :. 183 ** 215 i8 8734 QQ 8474 FF 120125
+dig ff 981
 " use ⟨ instead of 〈and ⟩ instead of 〉
 dig </ 10216 /> 10217
 
