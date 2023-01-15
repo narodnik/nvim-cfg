@@ -52,6 +52,22 @@ hi CursorLine   cterm=NONE guibg=#222526
 hi Folded guibg=NONE
 set hlsearch
 
+" only show line cursor for active buffer
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+" also grey the status bar
+hi StatusLine   gui=NONE guibg=#121516 guifg=#ffffff
+hi StatusLineNC gui=NONE guibg=#121516 guifg=#888888
+hi LineNR       guifg=#818f00
+hi CursorLineNR guifg=#818f00
+
+" For some reason it doesn't work:
+"hi! WinSeparator gui=NONE guibg=#222526 cterm=NONE
+"set fillchars+=vert:\ "white space at the end
+
 "map ; :
 nnoremap <Space> :
 vnoremap <Space> :
