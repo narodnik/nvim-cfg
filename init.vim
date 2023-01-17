@@ -232,7 +232,7 @@ cabbrev z Z
 
 dig a: 120094 b: 120095 c: 120096 p: 120109 ZZ 8484 in 8712 (< 8842
 dig ni 8713 (! 8840 :. 183 ** 215 i8 8734 QQ 8474 FF 120125
-dig ff 981
+dig ff 120601
 " use ⟨ instead of 〈and ⟩ instead of 〉
 dig </ 10216 /> 10217
 
