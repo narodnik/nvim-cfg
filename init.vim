@@ -235,6 +235,8 @@ dig ni 8713 (! 8840 :. 183 ** 215 i8 8734 QQ 8474 FF 120125
 dig ff 120601
 " use ⟨ instead of 〈and ⟩ instead of 〉
 dig </ 10216 /> 10217
+" add an overline
+dig bb 773
 
 " superscripts
 dig ^0 8304 ^1 185 ^2 178 ^3 179 ^4 8308 ^5 8309 ^6 8310 ^7 8311
